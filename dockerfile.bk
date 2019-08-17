@@ -1,0 +1,14 @@
+FROM node:latest AS setup
+WORKDIR /app/
+
+FROM node:latest AS install
+WORKDIR /app/
+COPY --from=setup /app/ /app/
+COPY package-lock.json package.json /app/
+RUN npm install --no-progress --ignore-optional
+
+FROM node:latest AS start
+WORKDIR /app/
+COPY --from=setup /app/ /app/
+EXPOSE 8080
+CMD npm run start:dev
