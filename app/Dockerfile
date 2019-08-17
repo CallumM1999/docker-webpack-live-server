@@ -10,4 +10,3 @@ FROM node:latest AS run
 WORKDIR /app/
 COPY --from=install . . 
 EXPOSE 8080
-CMD ls && npm run start:dev
