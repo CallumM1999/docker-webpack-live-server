@@ -1,20 +1,14 @@
-const path = require('path')
-
 module.exports = {
   mode: 'development',
-  entry: {
-    'main': './index.js'
-  },
+  entry: { main: './index.js' },
   module: {
     rules: [{
       test: /\.scss$/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader'
-      }, {
-        loader: 'sass-loader'
-      }]
+      use: [
+        { loader: 'style-loader' }, 
+        { loader: 'css-loader' }, 
+        { loader: 'sass-loader' }
+      ]
     }]
   },
   plugins: [
